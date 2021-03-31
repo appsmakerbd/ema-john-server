@@ -1,6 +1,6 @@
 const express=require('express');
 const app=express();
-
+const port=5000;
 
 //cors for remote get and post request handling start
 const cors = require('cors');
@@ -23,7 +23,7 @@ require('dotenv').config();
 
 
 // Mongo Connection URL
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.jcglm.mongodb.net/emaJohnStore?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.jcglm.mongodb.net/${process.env.DB_PASS}?retryWrites=true&w=majority`;
 
 
 
@@ -120,4 +120,4 @@ client.connect(err => {
 
 
 //last line of the code
-app.listen(5000);
+app.listen(process.env.PORT || port);
